@@ -97,12 +97,7 @@ class Context {
     const sources = getSources();
     const groups = Object.values(sources).filter(({ type }) => type === SOURCE_TYPE_GROUP);
     const users = Object.values(sources).filter(({ type }) => type === SOURCE_TYPE_USER);
-    if (this.event.isGroup && !sources[this.groupId] && groups.length >= config.APP_MAX_GROUPS) {
-      throw new Error(t('__ERROR_MAX_GROUPS_REACHED'));
-    }
-    if (!sources[this.userId] && users.length >= config.APP_MAX_USERS) {
-      throw new Error(t('__ERROR_MAX_USERS_REACHED'));
-    }
+    
   }
 
   async register() {
